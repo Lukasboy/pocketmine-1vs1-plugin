@@ -234,7 +234,7 @@ class ArenaManager{
 		}
 		$this->refreshSigns();
 	}
-	public function onWorldChange(onWorldChange $event){
+	public function onWorldChange(WorldChange $event){
  		$player = $event->getPlayer();
 	        $currentArena = $this->getPlayerArena($player);
 	if($currentArena != null){
