@@ -146,7 +146,7 @@ class Arena{
    		$winner->removeAllEffects();
    		
    		// Teleport the winner at spawn
-   		$winner->teleport($winner->getSpawn());
+   		$winner->teleport($winner->getLevel()->getSafeSpawn());
 
    		// Set his life to 20
    		$winner->setHealth(20);
@@ -188,7 +188,7 @@ class Arena{
     */
    public function onRoundEnd(){
    		foreach ($this->players as $player){
-   			$player->teleport($player->getSpawn());
+   			$player->teleport($player->getLevel()->getSafeSpawn());
    			$player->sendMessage(TextFormat::BOLD . "++++++++=++++++++");
    			$player->sendMessage(OneVsOne::getMessage("duel_timeover"));
    			$player->sendMessage(TextFormat::BOLD . "++++++++=++++++++");
