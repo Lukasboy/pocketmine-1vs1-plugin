@@ -75,20 +75,6 @@ class Arena{
 	/**
 	 * Really starts the duel after countdown
 	 */
-	public function onWorldChange(Player $player){
-	        $currentArena = $this->getPlayerArena($player);
-	if($currentArena != null){
-		$currentArena->onPlayerDeath($player);
-		return;
-	}
-		
-	        $index = array_search($player, $this->queue);
-	if($index != -1){
-		unset($this->queue[$index]);
-	}
-	$this->refreshSigns();
-	}
-	
 	public function startDuel(){
 		
 		Server::getInstance()->getScheduler()->cancelTask($this->countdownTaskHandler->getTaskId());
