@@ -234,21 +234,7 @@ class ArenaManager{
 		}
 		$this->refreshSigns();
 	}
-	public function onWorldChange(WorldChange $event){
- 		$player = $event->getPlayer();
-	        $currentArena = $this->getPlayerArena($player);
-	if($currentArena != null){
-		$currentArena->onPlayerDeath($player);
-		return;
-	}
-		
-	        $index = array_search($player, $this->queue);
-	if($index != -1){
-		unset($this->queue[$index]);
-	}
-	$this->refreshSigns();
-	}
-	
+
 	public function getNumberOfArenas(){
 		return count($this->arenas);
 	}
