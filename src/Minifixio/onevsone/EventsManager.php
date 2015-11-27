@@ -17,6 +17,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\block\SignChangeEvent;
 use pocketmine\utils\TextFormat;
+use pocketmine\event\entity\EntityLevelChangeEvent;
 
 
 /**
@@ -29,6 +30,11 @@ class EventsManager implements Listener{
 		
 	public function __construct(ArenaManager $arenaManager){
 		$this->arenaManager = $arenaManager;
+	}
+	
+		public function onWorldChange(EntityLevelChangeEvent $event){
+		$player = $event->getPlayer();
+		$this->arenaManager->removePlayerFromQueueOrArena($player);
 	}
 	
 	public function onPlayerQuit(PlayerQuitEvent $event){
