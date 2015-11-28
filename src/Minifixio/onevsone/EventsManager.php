@@ -33,7 +33,7 @@ class EventsManager implements Listener{
 	}
 	
 	public function onWorldChange(EntityLevelChangeEvent $event){
-		$player = $event->getPlayer();
+		$player = $event->getEntity();
 		$this->arenaManager->removePlayerFromQueueOrArena($player);
 	}
 	
